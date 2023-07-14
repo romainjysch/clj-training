@@ -1,4 +1,4 @@
-(ns clj-training.chapter-3)
+(ns getting-clojure.chapter-3)
 
 ;; Chapter 3 : Maps, Keywords and Sets
 

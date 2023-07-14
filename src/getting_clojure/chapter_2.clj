@@ -1,4 +1,4 @@
-(ns clj-training.chapter-2)
+(ns getting-clojure.chapter-2)
 
 ;; Chapter 2 : Vectors and Lists
 

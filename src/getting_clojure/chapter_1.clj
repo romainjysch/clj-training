@@ -1,4 +1,4 @@
-(ns clj-training.chapter_1)
+(ns getting-clojure.chapter_1)
 
 ;; Chapter 1 : Hello, Clojure
 
