@@ -21,3 +21,10 @@
   ;(nth elements 2)
   (elements 2))
 (third-element people-vector)
+
+(def last-week [0 2 5 3 7 8 4])
+(vec (map inc last-week))
+
+(def numbers [1 2 3 4])
+(type numbers)
+(println (vec (butlast numbers)))
