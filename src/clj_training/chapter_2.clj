@@ -1,5 +1,7 @@
 (ns clj-training.chapter-2)
 
+;; Chapter 2 : Vectors and Lists
+
 (def people-vector ["Robin" "Victor" "Romain"])
 (count people-vector)
 (first people-vector)

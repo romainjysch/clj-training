@@ -1,5 +1,7 @@
 (ns clj-training.chapter_1)
 
+;; Chapter 1 : Hello, Clojure
+
 (defn hello-world []
   (println "Hello, World!"))
 (hello-world)
