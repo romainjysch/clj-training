@@ -1,22 +1,19 @@
-# clj-training
+# Clojure Training
 
-A Clojure library designed to ... well, that part is up to you.
+This repository is created as part of my journey in learning Clojure programming using the book "Getting Clojure".
 
-## Usage
+## Getting Clojure by Russ Olsen
 
-FIXME
+Getting Clojure is an introductory book to Clojure that thoroughly explains the language fundamentals along with Clojure's unique approach to concurrency and state management.
 
-## License
+## Structure of the Repository
 
-Copyright © 2023 FIXME
+This repository is structured according to the chapters in the book. Each namespace corresponds to a chapter in the book.
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+## Tools Used
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+The primary tools I used for this project are:
+
+1. IntelliJ IDEA
+2. Cursive Plugin
+3. Clojure REPL
