@@ -1,5 +1,7 @@
 (ns getting-clojure.chapter-4)
 
+;; Chapter 4 : Logic
+
 (def var 1)
 (if (= var 1)
   (println "Good")
@@ -82,3 +84,13 @@
 (customer-greetings :gold)
 (customer-greetings :silver)
 (customer-greetings :other)
+
+(try
+  (/ 0 0)
+  (catch ArithmeticException e (println "Pas par 0!!")))
+
+(def task)
+(type (def task))
+(defn ensure-task-is-a-vector [task]
+  (if (vector? task) task [task]))
+(type (ensure-task-is-a-vector task))
