@@ -94,3 +94,15 @@
 (defn ensure-task-is-a-vector [task]
   (if (vector? task) task [task]))
 (type (ensure-task-is-a-vector task))
+
+(== 5.0 5)
+(= 5.0 5)
+
+(defn equal-or-bigger-than-5 [x]
+  (cond
+    (= x 5) "5"
+    (> x 5) "Bigger than 5"
+    :else "Else"))
+(equal-or-bigger-than-5 5)
+(equal-or-bigger-than-5 10)
+(equal-or-bigger-than-5 2)
