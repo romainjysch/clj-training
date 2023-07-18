@@ -1,6 +1,7 @@
 (ns exercism.cars-assemble)
 
-;;
+;; Cars, Assemble!
+;; https://exercism.org/tracks/clojure/exercises/cars-assemble
 
 (defn production-rate
   "Returns the assembly line's production rate per hour,
