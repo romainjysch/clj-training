@@ -142,3 +142,24 @@ cheap?
                         (fn [book] (= (book :title) "Dune"))))
 (cheap-sf-v2? dune)
 (cheap-sf-dune-v2 dune)
+
+(def double (partial * 2))
+(double 4)
+
+(#(* 2 %) 3)
+(#(+ %1 %2 %3) 1 1 1)
+
+(def double-literal #(* 2 %))
+(double-literal 3)
+
+(def harry-potter {:title "HP" :copies 1000})
+(def harry-potter-v2 (update harry-potter :copies inc))
+(println harry-potter-v2)
+
+(def author {:name "Rowling"
+             :book {:title "HP" :copies 1000}})
+(def author-v2 (update-in author [:book :copies] inc))
+(println author-v2)
+
+(def author-v3 (assoc-in author-v2 [:book :pages] 300))
+(println author-v3)
