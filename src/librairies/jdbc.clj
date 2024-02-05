@@ -1,4 +1,4 @@
-(ns librairies.next_jdbc
+(ns librairies.jdbc
   (:require [next.jdbc :as jdbc]
             [next.jdbc.result-set :as rs]
             [clojure.java.io :as io]))
