@@ -6,8 +6,8 @@
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [com.github.seancorfield/next.jdbc "1.3.883"]
                  [com.oracle.ojdbc/ojdbc8 "19.3.0.0"]
-                 [org.clojure/clojure "1.10.1"]
                  [ring/ring-core "1.9.4"]
                  [ring/ring-jetty-adapter "1.9.4"]
-                 [clj-http "3.12.3"]]
+                 [clj-http "3.12.3"]
+                 [aleph "0.7.1"]]
   :repl-options {:init-ns clj-training.core})
