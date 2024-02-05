@@ -9,5 +9,6 @@
                  [ring/ring-core "1.9.4"]
                  [ring/ring-jetty-adapter "1.9.4"]
                  [clj-http "3.12.3"]
-                 [aleph "0.7.1"]]
+                 [aleph "0.7.1"]
+                 [cheshire "5.12.0"]]
   :repl-options {:init-ns clj-training.core})
