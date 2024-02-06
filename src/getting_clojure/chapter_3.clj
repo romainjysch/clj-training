@@ -55,7 +55,20 @@
 (println me)
 (keys me)
 (vals me) ; get all the values out of the map
+(select-keys me [:age :sport])
 (assoc me "firstname" "Romain") ; can't be done
+
+(def map-of-map {:1 {:firstname "Romain"
+                     :age 24
+                     :city "Lausanne"}
+                 :2 {:firstname "Robin"
+                     :age 24
+                     :city "Fribourg"}
+                 :3 {:firstname "Victor"
+                     :age 26
+                     :city "Neuchâtel"}})
+(:1 map-of-map)
+(select-keys map-of-map [:1 :2])
 
 (defn print-book [book]
   (println "Title:" (book :title))
