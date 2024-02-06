@@ -70,6 +70,17 @@
 (:1 map-of-map)
 (select-keys map-of-map [:1 :2])
 
+(def map-of-map-v2 (hash-map :1 {:firstname "Romain"
+                                 :age 24
+                                 :city "Lausanne"}
+                            :2 {:firstname "Robin"
+                                :age 24
+                                :city "Fribourg"}
+                            :3 {:firstname "Victor"
+                                :age 26
+                                :city "Neuchâtel"}))
+(select-keys map-of-map-v2 [:1 :2])
+
 (defn print-book [book]
   (println "Title:" (book :title))
   (println "Author:" (book :author))
