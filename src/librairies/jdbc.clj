@@ -17,6 +17,11 @@
 
 (println all-restaurants)
 
+(defn find-restaurants []
+  (jdbc/execute! db-spec ["SELECT * FROM RESTAURANTS"]
+                 {:builder-fn rs/as-kebab-maps}))
+(find-restaurants)
+
 (defn vectorize-name-and-website [restaurants]
   (vec (map (fn [x] (select-keys x [:nom :site_web])) restaurants)))
 
