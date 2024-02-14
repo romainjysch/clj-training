@@ -35,7 +35,7 @@
 (defn create-map-from-restaurants [restaurants]
   "Create a map-of-maps from a SELECT request result."
   (reduce (fn [map-to-be-added current-elem]
-            (assoc map-to-be-added (current-elem :id) (dissoc current-elem :id)))
+            (assoc map-to-be-added (current-elem :numero) (dissoc current-elem :numero :description)))
           {}
           restaurants))
 
@@ -52,7 +52,7 @@
    :status 200
    :headers {"Content-Type" "application/json"}})
 
-(http/start-server handler {:port 12000 :join? false})
+(http/start-server handler {:port 12001 :join? false})
 
 ;; client with clj-http :
 (client/get "http://localhost:12000")
