@@ -1,9 +1,9 @@
 (ns librairies.http_server
   (:require [ring.adapter.jetty :as jetty]
-            [clj-http.client :as client]
-            [aleph.http :as http]
-            [cheshire.core :as json]
-            [librairies.jdbc :as da]))
+            [clj-http.client    :as client]
+            [aleph.http         :as http]
+            [cheshire.core      :as json]
+            [librairies.jdbc    :as da]))
 
 (def people-map {:1 {:firstname "Romain"
                      :age 24
@@ -17,11 +17,11 @@
 
 ;; text with ring :
 (defn handler [request]
-  {:body "Hello Clojure!"
+  {:body "Coucou"
    :status 200
    :headers {"Content-Type" "text/html"}})
 
-(jetty/run-jetty handler {:port 12000 :join? false})
+(jetty/run-jetty #'handler {:port 9999 :join? false})
 
 ;; json with aleph :
 (defn handler [request]
@@ -29,7 +29,7 @@
    :status 200
    :headers {"Content-Type" "application/json"}})
 
-(http/start-server handler {:port 12000 :join? false})
+(http/start-server handler {:port 9999 :join? false})
 
 ;; jdbc / cheshire / aleph :
 (defn create-map-from-restaurants [restaurants]
@@ -52,7 +52,7 @@
    :status 200
    :headers {"Content-Type" "application/json"}})
 
-(http/start-server handler {:port 12001 :join? false})
+(http/start-server handler {:port 9999 :join? false})
 
 ;; client with clj-http :
 (client/get "http://localhost:12000")
