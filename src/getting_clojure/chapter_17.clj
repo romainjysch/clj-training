@@ -48,9 +48,13 @@
 
 ;; promise and deref or @ for immuability and wait until the thread is finished
 
-(def the-result (promise))
-(deliver the-result "Dune")
+(def the-result (promise)) ; returns a promise object that can be read with deref/@
+(realized? the-result)
+(def the-other-result (promise))
+(realized? the-other-result)
+(deliver the-result "Dune") ; set only once with deliver
 (println "The value in the promise is :" (deref the-result))
+(println "The value in the promise is :" @the-result)
 
 (def inventory [{:title "Dune" :sold 51 :revenue 255}
                 {:title "1984" :sold 17 :revenue 170}])
