@@ -7,10 +7,12 @@
 
 (def vec-title ["Dune" "Star Wars" "Mission Impossible"])
 (println vec-title)
+(seq vec-title)
 (def seq-vec-title (seq vec-title))
 (println seq-vec-title)
 (def list-title '("Dune" "Star Wars"))
 (println list-title)
+(seq list-title)
 (def seq-list-title (seq list-title))
 (println seq-list-title)
 (def map-title {:title "Dune" :author "Herbert"})
@@ -35,7 +37,10 @@
     (set? x) :set
     (map? x) :map
     (string? x) :string
+    (seq? x) :sequence
     :else :unknown))
+(flavor vec-title)
+(flavor seq-vec-title)
 
 (defmulti my-count flavor)
 
@@ -61,17 +66,32 @@
 (reverse vec-title)
 (reverse (sort vec-title))
 (partition 1 vec-title)
+(partition 2 vec-title)
+(partition 3 vec-title)
 
 (def titles ["Dune" "Mission Impossible"])
-(def authors '("Herbert" "Clarke"))
-(interleave titles authors)
+(def authors '("Herbert" "Clarke" "Rowling"))
+(interleave authors titles) ; need the same count
 (interpose "and" (interleave titles authors))
 
 (filter neg? [-1 2 -55 -3453 45 3])
 
+(defn fizz? [x]
+  (zero? (rem x 5)))
+(defn buzz? [x]
+  (zero? (rem x 7)))
+(defn fizzbuzz? [x]
+  (and (fizz? x)
+       (buzz? x)))
+
+(def fizz-buzz-fizzbuzz? (or fizz? buzz? fizzbuzz?))
+
+(filter fizz-buzz-fizzbuzz? [1 2 3 4 5 6 7 7 8 9 10 15 35])
+(some fizz-buzz-fizzbuzz? [1 2 3 4 5 6 7 7 8 9 10 15 35])
+
 (def books
-  [{:title "Deep Six" :price 13.99 :genre :sci-fi :rating 6}
-   {:title "Dracula" :price 1.99 :genre :horror :rating 7}
+  [{:title "Dracula" :price 1.99 :genre :horror :rating 7}
+   {:title "Deep Six" :price 13.99 :genre :sci-fi :rating 6}
    {:title "Emma" :price 7.99 :genre :comedy :rating 9}
    {:title "2001" :price 10.50 :genre :sci-fi :rating 5}])
 
@@ -102,8 +122,10 @@
 (reduce + numbers)
 (reduce + 100 numbers)
 
-(defn higher-price [hi book]
-  (let [price (:price book)]
+(apply max-key :price books)
+
+(defn higher-price [hi books]
+  (let [price (:price books)]
     (if (> price hi)
       price
       hi)))
@@ -115,6 +137,8 @@
     str
     (interpose " // " (map :title (take 3 (reverse (sort-by :rating books)))))))
 (format-top-titles books)
+
+(take 3 (reverse (sort-by :rating books)))
 
 (apply str (interpose " // " (map :title (take 3 (reverse (sort-by :rating books))))))
 

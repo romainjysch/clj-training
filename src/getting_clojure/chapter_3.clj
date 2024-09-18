@@ -3,10 +3,13 @@
 ;; Chapter 3 : Maps, Keywords and Sets
 
 {"firstname" "Romain" "age" 24}
+{:firstname "Romain" :age 25}
 
 (hash-map "firstname" "Romain"
           "age" 24
           "city" "Lausanne") ; (hash-map) and not (map) /!\
+
+(hash-map :firstname "Romain" :age 25 :birthday "April")
 
 (def dune {"title" "Dune"
            "author" "Herbert"
@@ -18,7 +21,9 @@
 
 (def boolean-map {true "true"
                   false "false"})
+
 (boolean-map true)
+(boolean-map false)
 
 ;; everything can be a key, but :keyword is better as a label
 
@@ -57,6 +62,9 @@
 (vals me) ; get all the values out of the map
 (select-keys me [:age :sport])
 (assoc me "firstname" "Romain") ; can't be done
+(assoc me "l" "Jy") ; can't be done
+
+(keys {:f "Romain" "l" "Jy"})
 
 (def map-of-map {:1 {:firstname "Romain"
                      :age 24
@@ -96,6 +104,7 @@
 (println romain)
 (:notes romain) ; nil
 (:bulletin romain) ; {:notes [5.5 5 4.5]}
+(get-in romain [:bulletin :notes])
 
 (def new-romain
   (-> romain

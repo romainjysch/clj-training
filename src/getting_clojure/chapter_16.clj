@@ -1,6 +1,5 @@
 (ns getting-clojure.chapter_16
-  (:import java.io.File
-           com.google.gson.Gson))
+  (:import java.io.File))
 
 ;; Chapter 16 : Interoperating with Java
 

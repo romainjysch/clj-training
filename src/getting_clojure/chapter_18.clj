@@ -3,12 +3,12 @@
 ;; Clojure comes with a variety of containers for mutable state
 
 (def counter (atom 0)) ; instead of (def counter 0)
-(defn greeting-message [request]
+(defn greeting-message []
   (swap! counter inc) ; takes an atom and a function to produce the next value
-  (if (zero? (mod counter 100))
-    (str "You are the " counter " visitor!")
-    (str "Hello there!")))
-(greeting-message "test")
+    (str "You are the " @counter " !"))
+(greeting-message)
+
+(swap! counter * 2)
 
 ;; swap! is thread safe
 
@@ -21,6 +21,8 @@
 (def by-title (atom {}))
 (defn add-book [{title :title :as book}]
   (swap! by-title #(assoc % title book)))
+
+@by-title
 
 (defn del-book [title]
   (swap! by-title #(dissoc % title)))
@@ -74,7 +76,7 @@
        (:title book)
        " by "
        (:author book)))
-(def memoized-blurb (memoize blurb)) ; memoize for caching the result of cuntion call
+(def memoized-blurb (memoize blurb)) ; memoize for caching the result of funtion call
 
 (def dune {:title "Dune", :author "Herbert"})
 (memoized-blurb dune) ; for pure functions !

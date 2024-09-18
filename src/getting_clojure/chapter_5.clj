@@ -112,6 +112,10 @@
 (sum-copies-v3 books-copies)
 (map :copies-sold books-copies)
 
+(apply + (map :copies-sold books-copies))
+(map :copies-sold books-copies)
+(reduce + (map :copies-sold books-copies))
+
 (defn multi-average
   "Return the average of 2 or 3 numbers."
   ([x y] (/ (+ x y) 2.0))

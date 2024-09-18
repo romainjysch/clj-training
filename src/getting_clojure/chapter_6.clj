@@ -74,11 +74,14 @@ cheap?
 ;; both? is better than the pricey-and-programming function
 
 (println "A function:" (fn [x] (* 2 x)))
-((fn [x] (* 2 x)) 4) ; like (squared 4) and not binded to a name
-((fn [x] (* x x)) 4)
+((fn [x] (* 2 x)) 4)
+((fn [x] (* x x)) 4) ; like (squared 4) and not binded to a name
 (def double (fn [x] (* 2 x)))
+(defn double-v2 [x]
+  (* x 2))
 (def squared (fn [x] (* x x))) ; now binded to a name
 (double 4)
+(double-v2 4)
 (squared 4)
 
 ;; nameless functions :

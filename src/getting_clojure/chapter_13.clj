@@ -25,7 +25,7 @@
 (vals ron)
 
 (def specific-harry (assoc harry :volumes "1-7"))
-(println specific-harry)
+specific-harry
 
 ;; the extras don’t affect the record type in any way
 ;; and they don’t get the magic speed boost of the built-in fields
@@ -34,8 +34,8 @@
             :appears-in "A Scandal in Bohemia"
             :author "Doyle"})
 
-(:name harry) ; faster
-(:name irene)
+(time (:name harry)) ; faster
+(time (:name irene))
 
 (defrecord SuperComputer [cpu n-cpus storage-gb])
 
@@ -53,7 +53,10 @@
 ;; protocols instead of instance? and class
 
 (defrecord Employee [first-name last-name department])
+(def romain (->Employee "Romain" "Jysch" "IT"))
 (def alice (->Employee "Alice" "Smith" "IT"))
+alice
+romain
 
 (defprotocol Person
   (full-name [this])
@@ -67,7 +70,7 @@
   (description [this] (str (:name this) " is a character in " (:appears-in this))))
 (defrecord Employee [first-name last-name department]
   Person
-  (full-name [this] (str first-name " " last-name))
+  (full-name [] (str first-name " " last-name))
   (greeting [this msg] (str msg " " (:first-name this)))
   (description [this] (str (:first-name this) " works in " (:department this))))
 

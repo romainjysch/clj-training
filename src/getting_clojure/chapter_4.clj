@@ -2,8 +2,8 @@
 
 ;; Chapter 4 : Logic
 
-(defn print-greeting [preferred-customer]
-  (if preferred-customer
+(defn print-greeting [preferred-customer?]
+  (if preferred-customer?
     (println "Hello my fav!")
     (println "Hello!")))
 (print-greeting true)
@@ -27,6 +27,7 @@
 (if (= var 1)
   (println "Good")
   (println "Bad"))
+(= var 2)
 
 (= (+ 2 2) (/ 40 10) (- 5 1))
 (not= "Romain" "Robin")
@@ -67,6 +68,15 @@
     (println "Bonjour")
     (+ 2 2)))
 
+(if true
+  (do
+    (println "R")
+    "R"
+    (println "J")
+    "J"))
+
+(do)
+
 (defn shipping-fees [prefered-customer order-amount]
   (if prefered-customer
     (do
@@ -79,8 +89,9 @@
 (shipping-fees false 100)
 
 (if 1
-  (when
+  (when ; like do but with a if that needs to be true
     "Monsieur"
+    (println "hello")
     "Bonjour"))
 
 (defn another-greeting [preferred-customer]
@@ -114,15 +125,6 @@
 (shipping-charge-v2 false 5)
 (shipping-charge-v2 true 1000)
 
-(defn other-cond-test [x]
-  (cond->
-    (< 50) "a"
-    (< 100) "b"
-    (< 200) "c"))
-(other-cond-test 25)
-(other-cond-test 75)
-(other-cond-test 150)
-
 (defn customer-greetings [status]
   (case status
     :gold "Welcome gold"
@@ -143,7 +145,7 @@
     task [task]))
 (type (ensure-task-is-a-vector task))
 
-(== 5.0 5)
+(== 5.0 5) ; type independant
 (= 5.0 5)
 
 (and 1984 "Romain" 1291)

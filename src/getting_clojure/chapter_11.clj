@@ -4,6 +4,8 @@
 
 (def jack "All work and no play makes Jack a dull boy.")
 (def text [jack jack jack jack jack jack jack jack jack jack])
+jack
+text
 
 ;; sequence with the value supplied
 (def repeated-text (repeat jack))
@@ -15,7 +17,7 @@
 (take 20 repeated-text)
 
 ;; cycle for collections
-(take 7 (cycle [1 2 3]))
+(take 7 (cycle [1 2 3 4]))
 
 ;; iterate with a function and a starting value
 (def numbers (iterate inc 1))
@@ -26,6 +28,7 @@
 (nth numbers 2)
 (nth numbers 99)
 (take 5 numbers)
+(second numbers)
 
 (take 3 [1 2 3 4 5])
 
@@ -34,14 +37,15 @@
 
 (println (take 20 many-nums))
 
-(time (println (take 20 many-nums)))
+(time (println (take 9999 many-nums)))
 
 (def evens (map #(* 2 %) (iterate inc 1)))
 (take 20 evens)
+(take 40 evens)
 
 (take 10 (interleave numbers evens))
 
-(def volumes (iterate inc 1))¨
+(def volumes (iterate inc 1))
 
 ;; map returns a lazy sequence
 (def titles (map #(str "Dune, Book " %) volumes))
@@ -58,6 +62,8 @@
   (map combine-names
        (cycle first-names)
        (cycle last-names)))
+
+(take 10 authors)
 
 (defn make-book
   [title author]
@@ -80,6 +86,8 @@
 (def s (lazy-seq (chatty-vector)))
 (first s)
 (take 2 s)
+
+(take 3 ["Romain" "Victor" "Arnaud" "Manon"])
 
 (cons 4 (seq [1 2 3]))
 

@@ -2,8 +2,7 @@
 
 ;; Chapter 2 : Vectors and Lists
 
-(def people-vector
- ["Robin" "Victor" "Romain"])
+(def people-vector ["Robin" "Victor" "Romain"])
 (count people-vector)
 (first people-vector)
 (last people-vector)
@@ -30,6 +29,8 @@
 (def last-week [0 2 5 3 7 8 4])
 (vec (map inc last-week))
 
+(map #(* % 2) last-week)
+
 (def numbers [1 2 3 4])
 (type numbers)
 (vec (butlast numbers))
@@ -50,10 +51,12 @@
 
 (def new-simple-vector (conj simple-vector 4)) ; simple-vector stay the same !
 (println new-simple-vector)
+simple-vector
 
 (def simple-list '(1 2 3 4))
 (println simple-list)
 (def empty-list-v1 '())
+empty-list-v1
 (println empty-list-v1)
 (def empty-list-v2 ())
 (println empty-list-v2)
