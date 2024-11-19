@@ -43,3 +43,36 @@ scores
 (merge scores other-scores); merge for maps only
 (merge-with + scores other-scores)
 (sorted-map :romain 10 :victor 20 :robin 30) ; keywords comparison
+
+;; Domain information
+(def person
+  {:firstname "Romain"
+   :lastname "J"
+   :age 25
+   :occupation "Programmer"})
+
+(get person :age)
+(:age person)
+(person :age)
+(:favorite-color person "Red")
+(assoc person :color "Red")
+(update person :age inc)
+(dissoc person :age)
+
+(def company
+  {:name "WidgetCo"
+   :address {:street "123 Main St"
+             :city "Springfield"
+             :state "IL"}})
+(:address company)
+(get-in company [:address :city])
+
+;; Records
+(defrecord Person [firstname lastname age occupation])
+(def romain (->Person "Romain" "J" 25 "Programmer"))
+romain
+(def kelly (map->Person
+             {:firstname "Kelly"
+              :age 32
+              :occupation "Programmer"}))
+kelly
