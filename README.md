@@ -6,21 +6,11 @@ This repository is created as part of my journey into learning Clojure. The goal
 
 For this learning endeavor, I'm combining three main approaches:
 
-1. Reading the book "Getting Clojure" by Russ Olsen.
+1. Reading books (especially "Getting Clojure" by Russ Olsen);
 
-2. Working on practical online exercises from the [Exercism](https://exercism.org/tracks/clojure) platform.
+2. Working on practical online exercises (Exercism or Advent of Code).
 
 3. Handling tests with different libraries.
-
-## Repository Structure
-
-The repository is organized into three main packages, reflecting the three components of my learning journey:
-
-1. The `exercism` package contains all exercises from the Exercism platform.
-
-2. The `getting_clojure` package is tied to the chapters of the "Getting Clojure" book. It includes various tests I have conducted for each chapter of the book.
-
-3. The `libraries` package contains the different tests associated with various libraries (for example, next.jdbc).
 
 ## Tools Used
 
