@@ -12,5 +12,7 @@
                  [aleph "0.7.1"]
                  [cheshire "5.12.0"]
                  [tortue/spy "2.15.0"]
-                 [com.exoscale/eftest "1.0.0"]]
+                 [com.exoscale/eftest "1.0.0"]
+                 [metosin/reitit "0.7.2"]
+                 [metosin/muuntaja "0.6.10"]]
   :repl-options {:init-ns clj-training.core})
