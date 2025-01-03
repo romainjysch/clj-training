@@ -8,7 +8,7 @@ For this learning endeavor, I'm combining three main approaches:
 
 1. Reading books (especially "Getting Clojure" by Russ Olsen);
 
-2. Working on practical online exercises (Exercism platform or yearly Advent of Code).
+2. Working on practical online exercises like Exercism;
 
 3. Handling tests with different libraries.
 
