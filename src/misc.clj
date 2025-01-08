@@ -1,7 +1,6 @@
 (ns misc)
 
-;; Anonymous functions :
-
+;; anonymous functions
 (def multiply-by-3 #(* 3 %))
 (multiply-by-3 3)
 (multiply-by-3 3)
@@ -12,8 +11,7 @@
 (def my-double (fn [x] (* 2 x)))
 (my-double 2)
 
-;; Partial :
-
+;; partial
 (def add-100
   "100 is the first arg to the + function."
   (partial + 100))
@@ -29,8 +27,7 @@
 (def times (partial *))
 (times 1 2 3)
 
-;; Complement :
-
+;; complement
 (map (complement even?) [1 2 3 4])
 (map odd? [1 2 3 4])
 
@@ -41,3 +38,7 @@
 
 (def reverse-fizz? (complement fizz?))
 (reverse-fizz? 5)
+
+;; into
+(into [] (map inc #{1 2 3}))
+(into {:a 1} {:a 2 :b 2 :c 3})
