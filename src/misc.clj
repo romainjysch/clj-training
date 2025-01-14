@@ -1,4 +1,5 @@
-(ns misc)
+(ns misc
+  (:require [clojure.string :as str]))
 
 ;; anonymous functions
 (def multiply-by-3 #(* 3 %))
@@ -42,3 +43,12 @@
 ;; into
 (into [] (map inc #{1 2 3}))
 (into {:a 1} {:a 2 :b 2 :c 3})
+
+;; split
+(let [zones "ch-gva-2,ch-dk-2,at-vie-1,at-vie-2,de-fra-1,de-muc-1,bg-sof-1"
+      result (str/split zones #",")]
+  result)
+
+(let [zones "ch-gva-2,bg-sof-1"
+      result (str/split zones #",")]
+  (count result))
