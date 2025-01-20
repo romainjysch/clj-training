@@ -52,3 +52,5 @@
 (let [zones "ch-gva-2,bg-sof-1"
       result (str/split zones #",")]
   (count result))
+
+(str/split (str 10) "")
