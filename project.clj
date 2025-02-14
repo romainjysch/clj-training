@@ -14,5 +14,7 @@
                  [tortue/spy "2.15.0"]
                  [com.exoscale/eftest "1.0.0"]
                  [metosin/reitit "0.7.2"]
-                 [metosin/muuntaja "0.6.10"]]
+                 [metosin/muuntaja "0.6.10"]
+                 [com.googlecode.java-ipv6/java-ipv6 "0.16"]
+                 [kovacnica/clojure.network.ip "0.1.5"]]
   :repl-options {:init-ns clj-training.core})
