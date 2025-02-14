@@ -1,5 +1,6 @@
 (ns misc
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.math :as math]))
 
 ;; anonymous functions
 (def multiply-by-3 #(* 3 %))
@@ -54,3 +55,36 @@
   (count result))
 
 (str/split (str 10) "")
+
+;; byte coercer
+(def ^:private gibi-bytes (* 1024 1024 1024))
+
+(defn bytes->gb
+  "Converts bytes to GB."
+  [size-bytes]
+  (quot size-bytes gibi-bytes))
+
+(defn bytes->gb-v2
+  "Converts bytes to GB."
+  [size-bytes]
+  (-> size-bytes
+      (/ gibi-bytes)
+      math/ceil
+      int))
+
+(bytes->gb-v2 926273536)
+(bytes->gb-v2 2147483648)
+(bytes->gb-v2 107374182400)
+(let [a (bytes->gb 107374182400)
+      b (bytes->gb-v2 107374182400)]
+  (= a b))
+(math/ceil (bytes->gb-v2 1143664640))
+
+(let [size-bytes 926273536]
+  (println (type (quot size-bytes gibi-bytes)))
+  (println (type (math/ceil (/ size-bytes gibi-bytes)))))
+
+;; update-keys
+(-> {"a" 1 "path" 2}
+    (update-keys #(if (= % "path") "uri" %))
+    (update-keys #(keyword %)))
