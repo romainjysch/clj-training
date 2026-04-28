@@ -54,8 +54,6 @@
       result (str/split zones #",")]
   (count result))
 
-(str/split (str 10) "")
-
 ;; byte coercer
 (def ^:private gibi-bytes (* 1024 1024 1024))
 
@@ -88,3 +86,20 @@
 (-> {"a" 1 "path" 2}
     (update-keys #(if (= % "path") "uri" %))
     (update-keys #(keyword %)))
+
+(sequential? (first {:b 2 :a 1}))
+(keep identity [1 2 3])
+(into [] (keep identity []))
+(if (seq (into [] (keep identity []))) "seq" "not")
+(if (into [] (keep identity ["a"])) "seq" "not")
+
+(seq [])
+(sequential? [])
+(sequential? (keep pos-int? [-1 0 1 2]))
+(sequential? (vec (keep pos-int? [-1 0 1 2])))
+
+(type (into [] (keep pos-int? [-1 0 1 2])))
+(type (vec (keep pos-int? [-1 0 1 2])))
+
+(type (long 2))
+(long 2)
