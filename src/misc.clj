@@ -87,6 +87,7 @@
     (update-keys #(if (= % "path") "uri" %))
     (update-keys #(keyword %)))
 
+;; seq and sequential
 (sequential? (first {:b 2 :a 1}))
 (keep identity [1 2 3])
 (into [] (keep identity []))
